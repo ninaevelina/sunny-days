@@ -1,4 +1,5 @@
 import { ApiResponse } from "@/app/lib/types/api-response";
+import { capitalizeFirstLetter } from "@/app/lib/hooks/capitalizeFirstLetter";
 
 interface WeatherCardProps {
   weatherData: ApiResponse | null;
@@ -15,7 +16,9 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
       <p className="self-center text-4xl">{weatherData.main.temp}°C</p>
       <div className="flex justify-between">
         <p className="self-start">Feels like {weatherData.main.feels_like}°C</p>
-        <p className="self-end">{weatherData.weather[0].description}</p>
+        <p className="self-end">
+          {capitalizeFirstLetter(weatherData.weather[0].description)}
+        </p>
       </div>
     </div>
   );
