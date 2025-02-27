@@ -2,29 +2,40 @@
 
 import React, { ChangeEvent, useState } from "react";
 import { fetchWeather } from "../lib/services/fetch-weather";
+import { ApiResponse } from "../lib/types/api-response";
+import WeatherCard from "./weather-card/weather-card";
 
 export default function WeatherWidget() {
   const [city, setCity] = useState<string>("");
+  const [weatherData, setWeatherData] = useState<ApiResponse | null>(null);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    fetchWeather(city);
+    const data: ApiResponse = await fetchWeather(city);
+    setWeatherData(data);
     setCity("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={city}
-        onChange={handleInputChange}
-        placeholder="Search weather by city"
-      />
-      <button type="submit">Search</button>
-    </form>
+    <section>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={city}
+            onChange={handleInputChange}
+            placeholder="Search weather by city"
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      <div>
+        <WeatherCard weatherData={weatherData} />
+      </div>
+    </section>
   );
 }
