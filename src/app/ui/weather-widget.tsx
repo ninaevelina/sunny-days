@@ -33,7 +33,7 @@ export default function WeatherWidget() {
           <button type="submit">Search</button>
         </form>
       </div>
-      <div>
+      <div className="w-4/5 mx-auto">
         <WeatherCard weatherData={weatherData} />
       </div>
     </section>
