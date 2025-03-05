@@ -16,9 +16,12 @@ type Story = StoryObj<typeof meta>;
 
 const mockData: ApiResponse = {
   name: "Stockholm",
+  dt: 1741181437,
   main: {
     temp: 4,
     feels_like: 3,
+    temp_min: 2,
+    temp_max: 4,
   },
   weather: [
     {
