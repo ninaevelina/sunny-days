@@ -22,6 +22,10 @@ const mockData: ApiResponse = {
     feels_like: 3,
     temp_min: 2,
     temp_max: 4,
+    humidity: 50,
+  },
+  wind: {
+    speed: 2,
   },
   weather: [
     {
