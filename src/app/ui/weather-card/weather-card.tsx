@@ -1,6 +1,7 @@
 import { ApiResponse } from "@/app/lib/types/api-response";
 import { capitalizeFirstLetter } from "@/app/lib/hooks/capitalizeFirstLetter";
 import Image from "next/image";
+import { getDayOfWeek } from "@/app/lib/hooks/getDayOfWeek";
 
 interface WeatherCardProps {
   weatherData: ApiResponse | null;
@@ -14,7 +15,10 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col justify-between p-4 gap-4 w-full bg-black text-white rounded-lg border border-white font-semibold border-opacity-80">
-        <p className="self-start">{weatherData.name}</p>
+        <div>
+          <p>{getDayOfWeek(weatherData.dt)}</p>
+          <p className="self-start">{weatherData.name}</p>
+        </div>
         <p className="xs:self-center text-4xl">{weatherData.main.temp}°C</p>
         <div className="flex flex-col gap-1 xs:justify-between xs:flex-row">
           <p className="self-start">
