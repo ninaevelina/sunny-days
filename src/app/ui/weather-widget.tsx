@@ -9,6 +9,7 @@ import WeatherForm from "./weather-form/weather-form";
 export default function WeatherWidget() {
   const [city, setCity] = useState<string>("");
   const [weatherData, setWeatherData] = useState<ApiResponse | null>(null);
+  const [isloading, setIsLoading] = useState<boolean>(false);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
@@ -16,9 +17,17 @@ export default function WeatherWidget() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const data: ApiResponse = await fetchWeather(city);
-    setWeatherData(data);
-    setCity("");
+    setIsLoading(true);
+    try {
+      const data: ApiResponse = await fetchWeather(city);
+      setWeatherData(data);
+    } catch (error) {
+      console.error("Failed to fetch weather data", error);
+      setWeatherData(null);
+    } finally {
+      setIsLoading(false);
+      setCity("");
+    }
   };
 
   return (
@@ -28,6 +37,7 @@ export default function WeatherWidget() {
           city={city}
           onInputChange={handleInputChange}
           onSubmit={handleSubmit}
+          loading={isloading}
         />
       </div>
       <div className="w-4/5 mx-auto">
