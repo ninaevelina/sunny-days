@@ -4,6 +4,7 @@ import React, { ChangeEvent, useState } from "react";
 import { fetchWeather } from "../lib/services/fetch-weather";
 import { ApiResponse } from "../lib/types/api-response";
 import WeatherCard from "./weather-card/weather-card";
+import WeatherForm from "./weather-form/weather-form";
 
 export default function WeatherWidget() {
   const [city, setCity] = useState<string>("");
@@ -23,15 +24,11 @@ export default function WeatherWidget() {
   return (
     <section>
       <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={city}
-            onChange={handleInputChange}
-            placeholder="Search weather by city"
-          />
-          <button type="submit">Search</button>
-        </form>
+        <WeatherForm
+          city={city}
+          onInputChange={handleInputChange}
+          onSubmit={handleSubmit}
+        />
       </div>
       <div className="w-4/5 mx-auto">
         <WeatherCard weatherData={weatherData} />
