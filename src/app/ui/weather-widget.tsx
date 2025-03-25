@@ -4,10 +4,12 @@ import React, { ChangeEvent, useState } from "react";
 import { fetchWeather } from "../lib/services/fetch-weather";
 import { ApiResponse } from "../lib/types/api-response";
 import WeatherCard from "./weather-card/weather-card";
+import WeatherForm from "./weather-form/weather-form";
 
 export default function WeatherWidget() {
   const [city, setCity] = useState<string>("");
   const [weatherData, setWeatherData] = useState<ApiResponse | null>(null);
+  const [isloading, setIsLoading] = useState<boolean>(false);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
@@ -15,23 +17,28 @@ export default function WeatherWidget() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const data: ApiResponse = await fetchWeather(city);
-    setWeatherData(data);
-    setCity("");
+    setIsLoading(true);
+    try {
+      const data: ApiResponse = await fetchWeather(city);
+      setWeatherData(data);
+    } catch (error) {
+      console.error("Failed to fetch weather data", error);
+      setWeatherData(null);
+    } finally {
+      setIsLoading(false);
+      setCity("");
+    }
   };
 
   return (
-    <section>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={city}
-            onChange={handleInputChange}
-            placeholder="Search weather by city"
-          />
-          <button type="submit">Search</button>
-        </form>
+    <section className="flex flex-col gap-12 py-5 px-0">
+      <div className="w-4/5 mx-auto flex justify-end">
+        <WeatherForm
+          city={city}
+          onInputChange={handleInputChange}
+          onSubmit={handleSubmit}
+          loading={isloading}
+        />
       </div>
       <div className="w-4/5 mx-auto">
         <WeatherCard weatherData={weatherData} />
