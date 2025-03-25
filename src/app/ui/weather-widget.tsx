@@ -31,8 +31,8 @@ export default function WeatherWidget() {
   };
 
   return (
-    <section>
-      <div>
+    <section className="flex flex-col gap-12 py-5 px-0">
+      <div className="w-4/5 mx-auto flex justify-end">
         <WeatherForm
           city={city}
           onInputChange={handleInputChange}

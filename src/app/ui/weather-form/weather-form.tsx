@@ -14,7 +14,7 @@ export default function WeatherForm({
   loading = false,
 }: FormProps) {
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="flex gap-2.5">
       <input
         type="text"
         value={city}
