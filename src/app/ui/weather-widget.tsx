@@ -5,6 +5,7 @@ import { fetchWeather } from "../lib/services/fetch-weather";
 import { ApiResponse } from "../lib/types/api-response";
 import WeatherCard from "./weather-card/weather-card";
 import WeatherForm from "./weather-form/weather-form";
+import WeatherCardList from "./weather-card-list/weather-card-list";
 
 export default function WeatherWidget() {
   const [city, setCity] = useState<string>("");
@@ -42,6 +43,9 @@ export default function WeatherWidget() {
       </div>
       <div className="w-4/5 mx-auto">
         <WeatherCard weatherData={weatherData} />
+      </div>
+      <div className="w-4/5 mx-auto">
+        {weatherData && <WeatherCardList items={weatherData.list} />}
       </div>
     </section>
   );
