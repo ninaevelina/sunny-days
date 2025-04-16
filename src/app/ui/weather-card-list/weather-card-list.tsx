@@ -9,7 +9,7 @@ export default function WeatherCardList({ items }: WeatherCardListProps) {
   const slicedItems = items.slice(1, 5);
   console.log("sliced items in list", slicedItems);
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-4 gap-6">
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
       {slicedItems.map((item, index) => (
         <li
           key={index}
