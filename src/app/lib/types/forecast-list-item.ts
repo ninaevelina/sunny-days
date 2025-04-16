@@ -5,5 +5,6 @@ export type ForecastListItem = {
   };
   weather: {
     description: string;
+    icon: string;
   }[];
 };

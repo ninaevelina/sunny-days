@@ -17,6 +17,7 @@ export type ApiResponse = {
     };
     weather: {
       description: string;
+      icon: string;
     }[];
   }[];
 };
