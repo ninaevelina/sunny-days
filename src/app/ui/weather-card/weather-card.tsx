@@ -23,9 +23,22 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
           {weatherData.list[0].main.temp}°C
         </p>
         <div className="flex flex-col gap-1 xs:justify-between xs:flex-row">
-          <p className="self-start">
-            {capitalizeFirstLetter(weatherData.list[0].weather[0].description)}
-          </p>
+          <div className="self-start flex gap-1 items-center">
+            <div>
+              <Image
+                src={`https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@2x.png`}
+                alt={weatherData.list[0].weather[0].description}
+                height={24}
+                width={24}
+              />
+            </div>
+            <p>
+              {capitalizeFirstLetter(
+                weatherData.list[0].weather[0].description
+              )}
+            </p>
+          </div>
+
           <div className="flex xs:self-end gap-2">
             <p>H: {weatherData.list[0].main.temp_max}°C</p>
             <p>L: {weatherData.list[0].main.temp_min}°C</p>
