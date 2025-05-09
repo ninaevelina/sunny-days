@@ -5,6 +5,7 @@ interface FormProps {
   onInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent) => void;
   loading?: boolean;
+  error: boolean;
 }
 
 export default function WeatherForm({
