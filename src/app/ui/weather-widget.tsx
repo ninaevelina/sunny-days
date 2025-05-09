@@ -11,6 +11,7 @@ export default function WeatherWidget() {
   const [city, setCity] = useState<string>("");
   const [weatherData, setWeatherData] = useState<ApiResponse | null>(null);
   const [isloading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
@@ -19,12 +20,15 @@ export default function WeatherWidget() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setIsError(false);
     try {
       const data: ApiResponse = await fetchWeather(city);
       setWeatherData(data);
     } catch (error) {
       console.error("Failed to fetch weather data", error);
       setWeatherData(null);
+      setIsError(true);
+      return error;
     } finally {
       setIsLoading(false);
       setCity("");
@@ -39,9 +43,18 @@ export default function WeatherWidget() {
           onInputChange={handleInputChange}
           onSubmit={handleSubmit}
           loading={isloading}
+          error={isError}
         />
       </div>
-
+      {isError && (
+        <div className="w-4/5 mx-auto mt-20 flex flex-col text-center gap-2">
+          <h1 className="font-bold">Oops!</h1>
+          <p className="font-medium">
+            We couldn&apos;t find the city you searched for.
+          </p>
+          <p className="font-medium">Please try again.</p>
+        </div>
+      )}
       <div className="w-4/5 mx-auto flex flex-col gap-4">
         {weatherData ? (
           <div>
@@ -50,7 +63,6 @@ export default function WeatherWidget() {
         ) : null}
         <WeatherCard weatherData={weatherData} />
       </div>
-
       <div className="w-4/5 mx-auto flex flex-col gap-4">
         {weatherData ? (
           <div>
