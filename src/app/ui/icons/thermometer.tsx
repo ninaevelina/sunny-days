@@ -1,8 +1,4 @@
-interface IconProps {
-  width: number;
-  height: number;
-  fill: string;
-}
+import { IconProps } from "@/app/lib/types/icon-props";
 
 export default function Thermometer({ width, height, fill }: IconProps) {
   return (
