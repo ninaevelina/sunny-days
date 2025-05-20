@@ -13,7 +13,7 @@ export default function WeatherCardList({ items }: WeatherCardListProps) {
       {slicedItems.map((item, index) => (
         <li
           key={index}
-          className="rounded-lg border border-white p-4 border-opacity-80"
+          className="rounded-lg border border-black p-4 border-opacity-80"
         >
           <WeatherCardSmall item={item} />
         </li>
