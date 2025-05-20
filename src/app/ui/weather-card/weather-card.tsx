@@ -14,7 +14,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-col justify-between p-4 gap-4 w-full bg-black text-white rounded-lg border border-white font-semibold border-opacity-80">
+      <div className="flex flex-col justify-between p-4 gap-4 w-full bg-white text-black rounded-lg border border-black font-semibold border-opacity-80">
         <div>
           <p>{getDayOfWeek(weatherData.list[0].dt)}</p>
           <p className="self-start">{weatherData.city.name}</p>
@@ -46,7 +46,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div className="rounded-lg border border-white p-4 flex flex-col gap-4 border-opacity-80">
+        <div className="rounded-lg border border-black p-4 flex flex-col gap-4 border-opacity-80">
           <div className="flex gap-1">
             <Image
               src={"/icons/thermometer-simple.svg"}
@@ -60,14 +60,14 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
             {weatherData.list[0].main.feels_like}°C
           </p>
         </div>
-        <div className="rounded-lg border border-white p-4 flex flex-col gap-4 border-opacity-80">
+        <div className="rounded-lg border border-black p-4 flex flex-col gap-4 border-opacity-80">
           <div className="flex gap-1">
             <Image src={"/icons/wind.svg"} alt="Wind" width={16} height={16} />
             <p>Wind</p>
           </div>
           <p className="font-semibold">{weatherData.list[0].wind.speed} m/s</p>
         </div>
-        <div className="rounded-lg border border-white p-4 flex flex-col gap-4 border-opacity-80">
+        <div className="rounded-lg border border-black p-4 flex flex-col gap-4 border-opacity-80">
           <div className="flex gap-1">
             <Image
               src={"/icons/drop-half-bottom.svg"}
