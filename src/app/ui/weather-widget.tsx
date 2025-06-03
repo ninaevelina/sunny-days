@@ -63,7 +63,8 @@ export default function WeatherWidget() {
         ) : null}
         <WeatherCard weatherData={weatherData} />
       </div>
-      <div className="w-4/5 mx-auto flex flex-col gap-4">
+      <div className="w-4/5 mx-auto grid grid-cols-1 sm:grid-cols-2">
+        {/*TODO: Remove the heading and add sunrise/sunset data*/}
         {weatherData ? (
           <div>
             <h2 className="font-medium">Weather next 4 days</h2>

@@ -9,15 +9,20 @@ export default function WeatherCardList({ items }: WeatherCardListProps) {
   const slicedItems = items.slice(1, 5);
   console.log("sliced items in list", slicedItems);
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-      {slicedItems.map((item, index) => (
-        <li
-          key={index}
-          className="rounded-lg border border-black p-4 border-opacity-80"
-        >
-          <WeatherCardSmall item={item} />
-        </li>
-      ))}
-    </ul>
+    <div className="rounded-lg border border-black p-4 flex flex-col gap-6">
+      <h2>📆 Weather next 4 days</h2>
+      <div>
+        <ul className="flex flex-col">
+          {slicedItems.map((item, index) => (
+            <li
+              key={index}
+              className="border-b border-black last:border-b-0 flex items-center py-2"
+            >
+              <WeatherCardSmall item={item} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
