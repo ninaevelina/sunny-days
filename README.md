@@ -27,3 +27,11 @@ The application's main features include:
 ![Typescript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Storybook](https://img.shields.io/badge/storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variable to your .env file:
+
+`NEXT_PUBLIC_API_KEY`
+
+View `.env.example` for more details. 🔑
