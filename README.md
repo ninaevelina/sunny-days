@@ -4,7 +4,22 @@ Sunny Days is a weather app built with Next.js, Typescript, TailwindCSS, Storybo
 
 ## Features
 
-- Displays a 5-day weather forecast
+The application's main features include:
+
+**Search functionality**
+
+- Option to search by city
+
+**Current weather data**
+
+- Temperature, wind, humidity
+- Weather description
+- Icon
+- Min and max temperature
+
+**Forecast**
+
+- A 5-day weather forecast, including the current weather data
 
 ## Tech Stack
 
