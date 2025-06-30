@@ -5,6 +5,8 @@ import { getDayOfWeek } from "@/app/lib/hooks/getDayOfWeek";
 import DropHalfBottom from "../icons/drop-half-bottom";
 import Thermometer from "../icons/thermometer";
 import Wind from "../icons/wind";
+import { getFeelsLikeMessage } from "@/app/lib/hooks/getFeelsLikeMessage";
+import { getWindDescription } from "@/app/lib/hooks/getWindDescription";
 
 interface WeatherCardProps {
   weatherData: ApiResponse | null;
@@ -14,6 +16,10 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
   if (!weatherData) {
     return null;
   }
+
+  const feelsLike = weatherData.list[0].main.feels_like;
+  const temp = weatherData.list[0].main.temp;
+  const feelsLikeMessage = getFeelsLikeMessage(feelsLike, temp);
 
   return (
     <div className="flex flex-col gap-8">
@@ -57,6 +63,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
           <p className="font-semibold">
             {weatherData.list[0].main.feels_like}°C
           </p>
+          <p>{feelsLikeMessage}</p>
         </div>
         <div className="rounded-lg border border-black p-4 flex flex-col gap-4 border-opacity-80">
           <div className="flex gap-1 items-center">
@@ -64,6 +71,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
             <p>Wind</p>
           </div>
           <p className="font-semibold">{weatherData.list[0].wind.speed} m/s</p>
+          <p>{getWindDescription(weatherData.list[0].wind.speed)}</p>
         </div>
         <div className="rounded-lg border border-black p-4 flex flex-col gap-4 border-opacity-80">
           <div className="flex gap-1 items-center">
