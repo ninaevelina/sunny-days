@@ -7,6 +7,7 @@ import Thermometer from "../icons/thermometer";
 import Wind from "../icons/wind";
 import { getFeelsLikeMessage } from "@/app/lib/hooks/get-feels-like-message";
 import { getWindDescription } from "@/app/lib/hooks/get-wind-description";
+import { getHumidityMessage } from "@/app/lib/hooks/get-humidity-message";
 
 interface WeatherCardProps {
   weatherData: ApiResponse | null;
@@ -79,6 +80,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
             <p>Humidity</p>
           </div>
           <p className="font-semibold">{weatherData.list[0].main.humidity}%</p>
+          <p>{getHumidityMessage(weatherData.list[0].main.humidity)}</p>
         </div>
       </div>
     </div>
