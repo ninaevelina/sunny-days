@@ -5,8 +5,8 @@ import { getDayOfWeek } from "@/app/lib/hooks/getDayOfWeek";
 import DropHalfBottom from "../icons/drop-half-bottom";
 import Thermometer from "../icons/thermometer";
 import Wind from "../icons/wind";
-import { getFeelsLikeMessage } from "@/app/lib/hooks/getFeelsLikeMessage";
-import { getWindDescription } from "@/app/lib/hooks/getWindDescription";
+import { getFeelsLikeMessage } from "@/app/lib/hooks/get-feels-like-message";
+import { getWindDescription } from "@/app/lib/hooks/get-wind-description";
 
 interface WeatherCardProps {
   weatherData: ApiResponse | null;
