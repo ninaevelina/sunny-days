@@ -33,7 +33,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
           <p className="self-start">{weatherData.city.name}</p>
         </div>
         <p className="xs:self-center text-4xl">
-          {formatTemperature(weatherData.list[0].main.temp)}°C
+          {formatTemperature(weatherData.list[0].main.temp)}
         </p>
         <div className="flex flex-col gap-1 xs:justify-between xs:flex-row">
           <div className="self-start flex gap-1 items-center">
@@ -53,8 +53,8 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
           </div>
 
           <div className="flex xs:self-end gap-2">
-            <p>H: {formatTemperature(weatherData.list[0].main.temp_max)}°C</p>
-            <p>L: {formatTemperature(weatherData.list[0].main.temp_min)}°C</p>
+            <p>H: {formatTemperature(weatherData.list[0].main.temp_max)}</p>
+            <p>L: {formatTemperature(weatherData.list[0].main.temp_min)}</p>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
             <p>Feels like</p>
           </div>
           <p className="font-semibold">
-            {formatTemperature(weatherData.list[0].main.feels_like)}°C
+            {formatTemperature(weatherData.list[0].main.feels_like)}
           </p>
           <p>{feelsLikeMessage}</p>
         </div>

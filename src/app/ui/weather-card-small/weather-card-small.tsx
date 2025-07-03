@@ -24,7 +24,7 @@ export default function WeatherCardSmall({ item }: WeatherCardSmallProps) {
         </div>
       </div>
       <div>
-        <p>{formatTemperature(item.main.temp)}°C</p>
+        <p>{formatTemperature(item.main.temp)}</p>
       </div>
     </div>
   );
