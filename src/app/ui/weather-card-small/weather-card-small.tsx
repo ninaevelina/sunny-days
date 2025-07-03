@@ -1,3 +1,4 @@
+import { formatTemperature } from "@/app/lib/hooks/format-temperature";
 import { getDayOfWeek } from "@/app/lib/hooks/getDayOfWeek";
 import { ForecastListItem } from "@/app/lib/types/forecast-list-item";
 import Image from "next/image";
@@ -23,7 +24,7 @@ export default function WeatherCardSmall({ item }: WeatherCardSmallProps) {
         </div>
       </div>
       <div>
-        <p>{item.main.temp}°C</p>
+        <p>{formatTemperature(item.main.temp)}</p>
       </div>
     </div>
   );
