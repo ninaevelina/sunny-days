@@ -13,15 +13,15 @@ export default function WeatherCardList({ items }: WeatherCardListProps) {
     <div className="rounded-lg border border-black p-4 flex flex-col gap-6">
       <div className="flex gap-1 items-center">
         <CalendarIcon width={16} height={16} fill={"#000000"} />
-        <h2>Weather next 4 days</h2>
+        <h2 className="font-medium">Weekly forecast</h2>
       </div>
 
       <div>
-        <ul className="flex flex-col">
+        <ul className="flex flex-col md:flex-row md:justify-between">
           {slicedItems.map((item, index) => (
             <li
               key={index}
-              className="border-b border-black last:border-b-0 flex items-center py-2"
+              className="border-b border-black last:border-b-0 flex items-center py-2 md:border-0"
             >
               <WeatherCardSmall item={item} />
             </li>
