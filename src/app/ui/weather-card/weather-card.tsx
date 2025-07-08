@@ -1,10 +1,10 @@
 import { ApiResponse } from "@/app/lib/types/api-response";
-import { capitalizeFirstLetter } from "@/app/lib/hooks/capitalizeFirstLetter";
+import { capitalizeFirstLetter } from "@/app/lib/hooks/capitalize-first-letter";
 import Image from "next/image";
-import { getDayOfWeek } from "@/app/lib/hooks/getDayOfWeek";
-import DropHalfBottom from "../icons/drop-half-bottom";
-import Thermometer from "../icons/thermometer";
-import Wind from "../icons/wind";
+import { getDayOfWeek } from "@/app/lib/hooks/get-day-of-week";
+import DropHalfBottomIcon from "../icons/drop-half-bottom-icon";
+import ThermometerIcon from "../icons/thermometer-icon";
+import WindIcon from "../icons/wind-icon";
 import {
   getFeelsLikeMessage,
   getWindDescription,
@@ -61,7 +61,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div className="rounded-lg border border-black p-4 flex flex-col gap-4 border-opacity-80">
           <div className="flex gap-1 items-center">
-            <Thermometer width={16} height={16} fill={"#000000"} />
+            <ThermometerIcon width={16} height={16} fill={"#000000"} />
             <p>Feels like</p>
           </div>
           <p className="font-semibold">
@@ -71,7 +71,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
         </div>
         <div className="rounded-lg border border-black p-4 flex flex-col gap-4 border-opacity-80">
           <div className="flex gap-1 items-center">
-            <Wind width={16} height={16} fill={"#000000"} />
+            <WindIcon width={16} height={16} fill={"#000000"} />
             <p>Wind</p>
           </div>
           <p className="font-semibold">{weatherData.list[0].wind.speed} m/s</p>
@@ -79,7 +79,7 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
         </div>
         <div className="rounded-lg border border-black p-4 flex flex-col gap-4 border-opacity-80">
           <div className="flex gap-1 items-center">
-            <DropHalfBottom width={16} height={16} fill={"#000000"} />
+            <DropHalfBottomIcon width={16} height={16} fill={"#000000"} />
             <p>Humidity</p>
           </div>
           <p className="font-semibold">{weatherData.list[0].main.humidity}%</p>

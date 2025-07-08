@@ -1,6 +1,6 @@
 import { IconProps } from "@/app/lib/types/icon-props";
 
-export default function Thermometer({ width, height, fill }: IconProps) {
+export default function ThermometerIcon({ width, height, fill }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

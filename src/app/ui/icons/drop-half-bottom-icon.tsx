@@ -1,6 +1,6 @@
 import { IconProps } from "@/app/lib/types/icon-props";
 
-export default function DropHalfBottom({ width, height, fill }: IconProps) {
+export default function DropHalfBottomIcon({ width, height, fill }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

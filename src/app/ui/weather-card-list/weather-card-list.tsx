@@ -1,6 +1,6 @@
 import { ForecastListItem } from "@/app/lib/types/forecast-list-item";
 import WeatherCardSmall from "../weather-card-small/weather-card-small";
-import CalendarIcon from "../icons/calendar";
+import CalendarIcon from "../icons/calendar-icon";
 
 interface WeatherCardListProps {
   items: ForecastListItem[];
