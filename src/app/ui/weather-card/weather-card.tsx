@@ -1,7 +1,7 @@
 import { ApiResponse } from "@/app/lib/types/api-response";
 import { capitalizeFirstLetter } from "@/app/lib/hooks/capitalize-first-letter";
 import Image from "next/image";
-import { getDayOfWeek } from "@/app/lib/hooks/getDayOfWeek";
+import { getDayOfWeek } from "@/app/lib/hooks/get-day-of-week";
 import DropHalfBottom from "../icons/drop-half-bottom";
 import Thermometer from "../icons/thermometer";
 import Wind from "../icons/wind";

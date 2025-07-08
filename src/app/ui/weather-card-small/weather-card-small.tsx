@@ -1,5 +1,5 @@
 import { formatTemperature } from "@/app/lib/hooks/format-temperature";
-import { getDayOfWeek } from "@/app/lib/hooks/getDayOfWeek";
+import { getDayOfWeek } from "@/app/lib/hooks/get-day-of-week";
 import { ForecastListItem } from "@/app/lib/types/forecast-list-item";
 import Image from "next/image";
 
